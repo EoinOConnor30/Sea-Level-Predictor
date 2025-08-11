@@ -12,13 +12,13 @@ def draw_plot():
 
     # Create first line of best fit
     best_fit = linregress(df['Year'], df['CSIRO Adjusted Sea Level'])
-    New_Years = pd.Series(range(1880,2050))
+    New_Years = pd.Series(range(1880,2051))
     plt.plot(New_Years, best_fit.intercept + best_fit.slope*New_Years, 'r')
 
 
     # Create second line of best fit
     df2000 = df[df['Year']>1999]
-    New_Years2 = pd.Series(range(2000,2050))
+    New_Years2 = pd.Series(range(2000,2051))
     best_fit2 = linregress(df2000['Year'], df2000['CSIRO Adjusted Sea Level'])
     plt.plot(New_Years2, best_fit2.intercept + best_fit2.slope*New_Years2, 'y')
 
@@ -32,3 +32,4 @@ def draw_plot():
     plt.savefig('sea_level_plot.png')
 
     return plt.gca()
+
